@@ -1,16 +1,21 @@
 <template>
-  <div id="home">
-    <h1>{{ msg }}</h1>
-    <a>Googleアカウントでログイン</a>
-  </div>
+<div id="home">
+  <h1>{{ msg }}</h1>
+  <button @click="googleLogin">Googleアカウントでログイン</button>
+</div>
 </template>
 
 <script>
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
       msg: 'Welcome to MyMarkdown'
+    }
+  },
+  methods: {
+    googleLogin: function() {
+      firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider());
     }
   }
 }
