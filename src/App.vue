@@ -1,7 +1,7 @@
 <template>
 <div id="app">
   <Home v-if="!isLogin"></Home>
-  <Editer v-if="isLogin"></Editer>
+  <Editer v-if="isLogin" :user="userData"></Editer>
 </div>
 </template>
 
@@ -13,7 +13,8 @@ export default {
   name: 'app',
   data() {
     return {
-      isLogin: false
+      isLogin: false,
+      userData: null,
     }
   },
   mounted: function() {
@@ -21,8 +22,10 @@ export default {
       console.log(user);
       if (user) {
         this.isLogin = true;
+        this.userData = user;
       } else {
         this.isLogin = false;
+        this.userData = null;
       };
     });
   },
