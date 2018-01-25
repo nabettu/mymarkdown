@@ -4,13 +4,13 @@
   <span>{{ user.displayName }}</span>
   <button @click="logout">ログアウト</button>
   <div>
-    <div class="postListWrapper">
-      <div class="postList" v-for="(post, index) in posts" @click="selectPost(index)" :data-selected="index == selectedIndex">
-        <p class="postName">{{ displayTitle(post.markdown) }}</p>
+    <div class="memoListWrapper">
+      <div class="memoList" v-for="(memo, index) in memos" @click="selectMemo(index)" :data-selected="index == selectedIndex">
+        <p class="memoTitle">{{ displayTitle(memo.markdown) }}</p>
       </div>
-      <button class="addPostBtn" @click="addPost">メモの追加</button>
+      <button class="addMemoBtn" @click="addMemo">メモの追加</button>
     </div>
-    <textarea class="markdown" v-model="posts[selectedIndex].markdown"></textarea>
+    <textarea class="markdown" v-model="memos[selectedIndex].markdown"></textarea>
     <div class="preview" v-html="preview()"></div>
   </div>
 </div>
@@ -24,7 +24,7 @@ export default {
   props: ['user'],
   data() {
     return {
-      posts: [{
+      memos: [{
         markdown: ''
       }],
       selectedIndex: 0
@@ -34,16 +34,16 @@ export default {
     logout: function() {
       firebase.auth().signOut();
     },
-    addPost: function() {
-      this.posts.push({
+    addMemo: function() {
+      this.memos.push({
         markdown: '無題のメモ',
       })
     },
-    selectPost: function(index) {
+    selectMemo: function(index) {
       this.selectedIndex = index;
     },
     preview: function() {
-      return marked(this.posts[this.selectedIndex].markdown);
+      return marked(this.memos[this.selectedIndex].markdown);
     },
     displayTitle: function(text) {
       return text.split(/\n/)[0].replace(/#\s/, '');
@@ -53,12 +53,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.postListWrapper {
+.memoListWrapper {
     width: 19%;
     float: left;
     border-top: 1px solid #000;
 }
-.postList {
+.memoList {
     padding: 10px;
     box-sizing: border-box;
     text-align: left;
@@ -70,13 +70,13 @@ export default {
         background-color: #ccf;
     }
 }
-.postName {
+.memoTitle {
     height: 1.5em;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
 }
-.addPostBtn {
+.addMemoBtn {
     margin-top: 20px;
 }
 .markdown {
