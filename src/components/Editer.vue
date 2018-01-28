@@ -14,12 +14,11 @@
       </button>
     </div>
     <div class="memoList" v-for="(memo, index) in memos" @click="selectMemo(index)" :data-selected="index == selectedIndex">
-      <p class="memoTitle" v-if="memo.markdown">{{ displayTitle(memo.markdown) }}</p>
-      <p class="memoTitle" v-if="!memo.markdown">no text</p>
+      <p class="memoTitle">{{ displayTitle(memo.markdown) }}</p>
     </div>
   </div>
   <textarea class="markdown" v-model="memos[selectedIndex].markdown" ref="markdown"></textarea>
-  <div class="previewWrapper">
+  <div class="previewWrapper" ref="preview">
     <p class="previewTitle">Preview Area</p>
     <div class="preview markdownHtml" v-html="preview()"></div>
   </div>
@@ -60,6 +59,30 @@ export default {
         this.saveMemos();
         return false;
       }
+      if (e.key == 'ArrowUp' && e.altKey) {
+        if (this.selectedIndex > 0 && this.memos.length > 0) {
+          this.selectMemo(this.selectedIndex - 1);
+          return false;
+        }
+      }
+      if (e.key == 'ArrowDown' && e.altKey) {
+        if (this.selectedIndex < this.memos.length - 1) {
+          this.selectMemo(this.selectedIndex + 1);
+        } else {
+          this.addMemo();
+        }
+        return false;
+      }
+      if (e.key == 'Backspace' && e.metaKey) {
+        this.deleteMemo();
+        return false;
+      }
+    }
+    const markdownDom = this.$refs.markdown;
+    const previewDom = this.$refs.preview;
+    markdownDom.onscroll = e => {
+      const ratio = markdownDom.scrollTop / (markdownDom.scrollHeight - markdownDom.getClientRects()[0].height);
+      previewDom.scrollTop = ratio * (previewDom.scrollHeight - previewDom.getClientRects()[0].height);
     }
   },
   beforeDestroy: function() {
@@ -113,7 +136,7 @@ export default {
       return markdown(this.memos[this.selectedIndex].markdown);
     },
     displayTitle: function(text) {
-      return text.split(/\n/)[0].replace(/#\s/, '');
+      return text.split(/\n/)[0].replace(/#+\s/, '') || 'no text';
     },
   }
 }

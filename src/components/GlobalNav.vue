@@ -1,6 +1,8 @@
 <template>
 <nav class="global-nav">
-  <img class="logo" src="../assets/logo.png">
+  <h1>
+    <img class="logo" src="../assets/logo.png" alt="MyMarkdown" title="MyMarkdown">
+  </h1>
   <div class="userInfo" v-if="user">
     <span class="userName">{{ user.displayName }}</span>
     <button class="logoutBtn" @click="logout">
@@ -33,7 +35,11 @@ export default {
     padding: 10px 10px 0;
     box-sizing: border-box;
     text-align: left;
+    background-color: #fff;
     border-bottom: #ccc 1px solid;
+}
+h1 {
+    display: inline-block;
 }
 .userInfo {
     float: right;
