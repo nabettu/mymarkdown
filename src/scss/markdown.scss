@@ -1,0 +1,100 @@
+.markdownHtml {
+  h1 {
+    border-bottom: solid 3px #ddd;
+    font-size: 1.7em;
+    line-height: 1.2;
+    padding-bottom: 0.3em;
+    margin: 0.5em 0;
+  }
+
+  h2 {
+    border-bottom: solid 1px #ddd;
+    font-size: 1.5em;
+    line-height: 1.2;
+    margin: 0.5em 0;
+    padding-bottom: 0.3em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+    line-height: 1.2;
+    margin: 0.5em 0;
+  }
+
+  h4 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin: 0.5em 0;
+  }
+
+  h5 {
+    font-size: 1.1em;
+    line-height: 1.2;
+    margin: 0.5em 0;
+  }
+
+  h6 {
+    line-height: 1.2;
+    margin: 0.5em 0;
+  }
+
+  ul {
+    list-style-type: disc;
+    line-height: 1.7;
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+  }
+
+  ol {
+    list-style-type: decimal;
+    line-height: 1.7;
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+  }
+
+  hr {
+    margin: 0.5em 0;
+  }
+
+  code {
+    display: block;
+    background-color: rgb(29, 31, 32);
+    color: #fff;
+    margin: 0.5em 0;
+    padding: 10px;
+  }
+
+  blockquote {
+    border-left: solid 3px #ddd;
+    padding: 0.5em;
+    margin: 1em 0;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  thead tr {
+    border-bottom: 1px solid #ddd;
+    background-color: inherit !important;
+    font-weight: bold;
+  }
+
+  tr {
+    border-bottom: 1px solid #ddd;
+
+    &:nth-child(odd) {
+      background-color: rgba(0,0,0,.03);
+    }
+  }
+
+  th {
+    padding: 0.5em;
+    border: 1px solid #ddd;
+  }
+
+  td {
+    padding: 0.5em;
+    border: 1px solid #ddd;
+  }
+}
