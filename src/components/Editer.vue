@@ -27,6 +27,7 @@
 
 <script>
 import markdown from '../lib/markdown';
+import sampleMarkdown from '../assets/sample';
 
 export default {
   name: 'editer',
@@ -34,7 +35,7 @@ export default {
   data() {
     return {
       memos: [{
-        markdown: ''
+        markdown: sampleMarkdown
       }],
       selectedIndex: 0,
       isSaving: false,
