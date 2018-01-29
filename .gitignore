@@ -2,6 +2,7 @@
 node_modules/
 dist/*
 !dist/index.html
+!dist/favicon.png
 npm-debug.log
 yarn-error.log
 
