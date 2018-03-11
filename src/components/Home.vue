@@ -8,6 +8,10 @@
       <i class="fa fa-google"></i>
       Googleアカウントで5秒で登録
     </button>
+    <div class="notice">
+      ※ 登録の際には
+      <a :href="termsUrl" target="_blank">利用規約とプライバシーポリシー</a> に同意したものとします。
+    </div>
   </div>
   <div class="about">
     <img class="sample" src="../assets/sample.png" alt="利用例" title="利用例">
@@ -27,8 +31,7 @@
     </button>
   </div>
   <div class="footer">
-    <a href="***" target="_blank">利用規約</a>
-    <a href="***" target="_blank">プライバシーポリシー</a>
+    <a :href="termsUrl" target="_blank">利用規約とプライバシーポリシー</a>
     <div class="providedby">
       Provided by
       <a href="https://twitter.com/nabettu" target="_blank">nabettu</a>
@@ -42,7 +45,8 @@ export default {
   name: 'home',
   data() {
     return {
-      msg: 'かつてないほどシンプルなメモ帳'
+      msg: 'かつてないほどシンプルなメモ帳',
+      termsUrl: '/'
     }
   },
   methods: {
@@ -76,6 +80,9 @@ export default {
     i {
         margin-right: 5px;
     }
+}
+.notice {
+    margin-top: 20px;
 }
 .about {
     width: 800px;
