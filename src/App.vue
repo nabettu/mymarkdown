@@ -1,13 +1,13 @@
 <template>
 <div id="app">
   <Home v-if="!isLogin"></Home>
-  <Editer v-if="isLogin" :user="userData"></Editer>
+  <Editor v-if="isLogin" :user="userData"></Editor>
 </div>
 </template>
 
 <script>
 import Home from './components/Home.vue';
-import Editer from './components/Editer.vue';
+import Editor from './components/Editor.vue';
 
 export default {
   name: 'app',
@@ -31,7 +31,7 @@ export default {
   },
   components: {
     'Home': Home,
-    'Editer': Editer,
+    'Editor': Editor,
   },
 }
 </script>
