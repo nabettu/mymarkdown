@@ -17,7 +17,7 @@ export default {
       userData: null,
     }
   },
-  mounted: function() {
+  created: function() {
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if (user) {
