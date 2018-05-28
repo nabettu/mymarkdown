@@ -43,6 +43,17 @@ export default {
         }
       })
   },
+  mounted: function() {
+    document.onkeydown = e => {
+      if (e.key == 's' && e.metaKey) {
+        this.saveMemos();
+        return false;
+      }
+    }
+  },
+  beforeDestroy: function() {
+    document.onkeydown = null;
+  },
   methods: {
     logout: function() {
       firebase.auth().signOut();
@@ -78,7 +89,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.editorWrapper{
+.editorWrapper {
     display: flex;
 }
 .memoListWrapper {
