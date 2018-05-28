@@ -4556,6 +4556,10 @@ shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
 
+shitajicss@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/shitajicss/-/shitajicss-4.5.1.tgz#ab1fbc89eff44808d5c31be539e8f1485124a3d3"
+
 signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
