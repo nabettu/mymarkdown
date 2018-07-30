@@ -56,7 +56,7 @@ export default {
   mounted: function() {
     this.focusMemo();
     document.onkeydown = e => {
-      if (e.key == 's' && e.metaKey) {
+      if (e.key == 's' && (e.metaKey || e.ctrlKey)) {
         this.saveMemos();
         return false;
       }
@@ -74,7 +74,7 @@ export default {
         }
         return false;
       }
-      if (e.key == 'Backspace' && e.metaKey) {
+      if (e.key == 'Backspace' && (e.metaKey || e.ctrlKey)) {
         this.deleteMemo();
         return false;
       }
