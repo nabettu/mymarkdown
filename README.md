@@ -24,6 +24,10 @@ https://mymarkdown.firebaseapp.com
 
   - 正しいパスは /src/App.vue になります。
 
+- P46 リスト5.11誤字
+
+  - deleteMemoBtn → .deleteMemoBtn (書籍では.が抜けています。)
+
 - P.47,48 「Control + sキー」とあるが、動作は「Command + s(Mac OS)、Windowsキー + s(Windows)」となっている。
 
   - 「Control + sキー」と「Command + s(Mac OS)、Windowsキー + s(Windows)」の双方で保存の操作に変更します。
