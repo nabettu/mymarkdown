@@ -45,7 +45,7 @@ export default {
   },
   mounted: function() {
     document.onkeydown = e => {
-      if (e.key == 's' && e.metaKey) {
+      if (e.key == 's' && (e.metaKey || e.ctrlKey)) {
         this.saveMemos();
         return false;
       }
