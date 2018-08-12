@@ -32,3 +32,11 @@ https://mymarkdown.firebaseapp.com
 
   - 「Control + sキー」と「Command + s(Mac OS)、Windowsキー + s(Windows)」の双方で保存の操作に変更します。
   -  リスト5.13：３行目を  `if (e.key == 's' && (e.metaKey || e.ctrlKey)) {` に変更します。
+
+- P.58 リスト7.4でcomponentsとの相対パス変更について記述が抜けている
+
+  - 以下の記述を追加 ("./" → "../"に変更)
+```
+import Home from "../components/Home.vue";
+import Editor from "../components/Editor.vue";
+```
