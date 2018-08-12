@@ -32,6 +32,15 @@ https://mymarkdown.firebaseapp.com
 
   - 「Control + sキー」と「Command + s(Mac OS)、Windowsキー + s(Windows)」の双方で保存の操作に変更します。
   -  リスト5.13：３行目を  `if (e.key == 's' && (e.metaKey || e.ctrlKey)) {` に変更します。
+  
+- p.49 shitajicssのインストールコマンドが無く、不親切。
+
+  - 以下の記述を追加
+  
+```
+$ npm install shitajicss
+```
+こちらのコマンドでnpmをインストールします。
 
 - P.57 1行目の記述変数名がソースと差異がある
 
