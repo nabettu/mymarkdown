@@ -22,7 +22,7 @@
       <p>"Control + s"(Macの場合は"Command + s")ですぐに保存</p>
       <p>"Alt + ↑↓"(Macの場合は"Option + ↑↓")でメモの切り替え</p>
       <p>最後のメモ選択時に"Alt + ↓"(Macの場合は"Option + ↓")でメモの追加</p>
-      <p>"Control + Backspace"(Macの場合は"Command + delete")でメモの保存</p>
+      <p>"Control + Backspace"(Macの場合は"Command + delete")でメモの削除</p>
     </div>
     <p>さぁあなたもすぐに初めてみましょう！</p>
     <button class="login" @click="googleLogin">
