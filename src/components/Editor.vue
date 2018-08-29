@@ -5,7 +5,7 @@
   <button @click="logout">ログアウト</button>
   <div class="editorWrapper">
     <div class="memoListWrapper">
-      <div class="memoList" v-for="(memo, index) in memos" @click="selectMemo(index)" :data-selected="index == selectedIndex">
+      <div class="memoList" v-for="(memo, index) in memos" :key="index" @click="selectMemo(index)" :data-selected="index == selectedIndex">
         <p class="memoTitle">{{ displayTitle(memo.markdown) }}</p>
       </div>
       <button class="addMemoBtn" @click="addMemo">メモの追加</button>
@@ -19,37 +19,39 @@
 </template>
 
 <script>
-import marked from 'marked';
+import marked from "marked";
 
 export default {
-  name: 'editor',
-  props: ['user'],
+  name: "editor",
+  props: ["user"],
   data() {
     return {
-      memos: [{
-        markdown: ''
-      }],
+      memos: [
+        {
+          markdown: ""
+        }
+      ],
       selectedIndex: 0
-    }
+    };
   },
   created: function() {
     firebase
       .database()
-      .ref('memos/' + this.user.uid)
-      .once('value')
+      .ref("memos/" + this.user.uid)
+      .once("value")
       .then(result => {
         if (result.val()) {
           this.memos = result.val();
         }
-      })
+      });
   },
   mounted: function() {
     document.onkeydown = e => {
-      if (e.key == 's' && (e.metaKey || e.ctrlKey)) {
+      if (e.key == "s" && (e.metaKey || e.ctrlKey)) {
         this.saveMemos();
         return false;
       }
-    }
+    };
   },
   beforeDestroy: function() {
     document.onkeydown = null;
@@ -60,7 +62,7 @@ export default {
     },
     addMemo: function() {
       this.memos.push({
-        markdown: '無題のメモ',
+        markdown: "無題のメモ"
       });
     },
     deleteMemo: function() {
@@ -72,7 +74,7 @@ export default {
     saveMemos: function() {
       firebase
         .database()
-        .ref('memos/' + this.user.uid)
+        .ref("memos/" + this.user.uid)
         .set(this.memos);
     },
     selectMemo: function(index) {
@@ -82,50 +84,50 @@ export default {
       return marked(this.memos[this.selectedIndex].markdown);
     },
     displayTitle: function(text) {
-      return text.split(/\n/)[0].replace(/#\s/, '');
-    },
+      return text.split(/\n/)[0].replace(/#\s/, "");
+    }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .editorWrapper {
-    display: flex;
+  display: flex;
 }
 .memoListWrapper {
-    width: 20%;
-    border-top: 1px solid #000;
+  width: 20%;
+  border-top: 1px solid #000;
 }
 .memoList {
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: left;
-    border-bottom: 1px solid #000;
-    &:nth-child(even) {
-        background-color: #ccc;
-    }
-    &[data-selected="true"] {
-        background-color: #ccf;
-    }
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+  border-bottom: 1px solid #000;
+  &:nth-child(even) {
+    background-color: #ccc;
+  }
+  &[data-selected="true"] {
+    background-color: #ccf;
+  }
 }
 .memoTitle {
-    height: 1.5em;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
+  height: 1.5em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .addMemoBtn {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .deleteMemoBtn {
-    margin: 10px;
+  margin: 10px;
 }
 .markdown {
-    width: 40%;
-    height: 500px;
+  width: 40%;
+  height: 500px;
 }
 .preview {
-    width: 40%;
-    text-align: left;
+  width: 40%;
+  text-align: left;
 }
 </style>
