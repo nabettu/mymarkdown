@@ -63,7 +63,7 @@ https://mymarkdown.firebaseapp.com
 - P.47,48 「Control + s キー」とあるが、動作は「Command + s(Mac OS)、Windows キー + s(Windows)」となっている。
 
   - 「Control + s キー」と「Command + s(Mac OS)、Windows キー + s(Windows)」の双方で保存の操作に変更します。
-  - リスト 5.13：３行目を `if (e.key == 's' && (e.metaKey || e.ctrlKey)) {` に変更します。
+  - リスト 5.13：３行目を `if (e.key == "s" && (e.metaKey || e.ctrlKey)) {` に変更します。
 
 - p.49 shitajicss のインストールコマンドが無く、不親切。
 
