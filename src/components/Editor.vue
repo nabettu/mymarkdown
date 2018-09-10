@@ -36,12 +36,13 @@ export default {
   },
   created: function() {
     firebase
-      .database()
-      .ref("memos/" + this.user.uid)
-      .once("value")
-      .then(result => {
-        if (result.val()) {
-          this.memos = result.val();
+      .firestore()
+      .collection("memos")
+      .doc(this.user.uid)
+      .get()
+      .then(doc => {
+        if (doc.exists && doc.data().memos) {
+          this.memos = doc.data().memos;
         }
       });
   },
@@ -73,9 +74,10 @@ export default {
     },
     saveMemos: function() {
       firebase
-        .database()
-        .ref("memos/" + this.user.uid)
-        .set(this.memos);
+        .firestore()
+        .collection("memos")
+        .doc(this.user.uid)
+        .set({ memos: this.memos });
     },
     selectMemo: function(index) {
       this.selectedIndex = index;
