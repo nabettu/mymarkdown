@@ -87,3 +87,9 @@ $ npm install shitajicss
 import Home from "../components/Home.vue";
 import Editor from "../components/Editor.vue";
 ```
+
+# Firestore の移行マニュアルを作成しました。
+
+[こちらのリポジトリで PDF を無料配布しています](https://github.com/nabettu/firestore-manual)
+
+また、本リポジトリの[firestore 対応ブランチはこちらになっております](https://github.com/nabettu/mymarkdown/tree/firestore)。
