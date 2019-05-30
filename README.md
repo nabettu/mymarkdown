@@ -115,7 +115,7 @@ Firestore を利用する場合には次のコードもコピーし、それぞ�
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
     <script>
-      // ご自身の
+      // ご自身のFirebaseプロジェクトの設定値
       var firebaseConfig = {
         apiKey: "AIzaSyBAfdUWsyvv_h216knnWlA_Tfk4dzEFa5g",
         authDomain: "mymarkdown2-68e37.firebaseapp.com",
@@ -132,6 +132,8 @@ Firestore を利用する場合には次のコードもコピーし、それぞ�
   </body>
 </html>
 ```
+
+こちらをご参照になって引き続き開発を進めていただければと思います。
 
 ## 認証の際に、サポートメールの設定が必要
 
